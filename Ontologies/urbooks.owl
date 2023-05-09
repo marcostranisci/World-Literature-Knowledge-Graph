@@ -1,0 +1,506 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://purl.archive.org/urbooks#"
+     xml:base="https://purl.archive.org/urbooks"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:vann="http://purl.org/vocab/vann/"
+     xmlns:skos1="http://www.w3.org/2008/05/skos#"
+     xmlns:terms="http://purl.org/dc/terms/">
+    <owl:Ontology rdf:about="https://purl.archive.org/urbooks">
+        <dc:creator xml:lang="en">Marco Antonio Stranisci
+Rossana Damiano
+Viviana Patti</dc:creator>
+        <dc:date>2022-07-0</dc:date>
+        <dc:description xml:lang="en">The Under-Represented Books Ontology is an ontology aimed at modelling works created by Western and Transnational writers born from 1808. The ontology relies on FRBR for the encoding of works, expressions, and editions, and on DOLCE for the representations of prizes and publications.
+The Under-Represented Books Ontology is parte of the Under-Represented Writer project, which is aimed at exploring and mitigating the potential lack of representation of non-Western writers.</dc:description>
+        <dc:rights>CC BY-NC 4.0</dc:rights>
+        <dc:source>Endpoint SPARQL: https://kgccc.di.unito.it/sparql/underrepresented</dc:source>
+        <dc:source>https://underrepresented.di.unito.it/</dc:source>
+        <dc:title xml:lang="en">The Ontology of Under-Represented Books</dc:title>
+        <owl:versionInfo>OWL 2</owl:versionInfo>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/creator -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/creator"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/date -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/date"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/description -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/description"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/rights -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/rights"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/source -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/source"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/title -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/title"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/terms/creator -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/dc/terms/creator">
+        <owl:equivalentProperty rdf:resource="https://purl.archive.org/urbooks#responsibleEntity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dc/terms/publisher -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/dc/terms/publisher">
+        <owl:equivalentProperty rdf:resource="https://purl.archive.org/urbooks#hasPublisher"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/spar/fabio/hasManifestation -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/spar/fabio/hasManifestation">
+        <owl:equivalentProperty rdf:resource="https://purl.archive.org/urbooks#manifestation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/spar/fabio/isManifestationOf -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/spar/fabio/isManifestationOf">
+        <owl:equivalentProperty rdf:resource="https://purl.archive.org/urbooks#manifestationOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/vocab/frbr/core#embodiment -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/vocab/frbr/core#embodiment">
+        <owl:equivalentProperty rdf:resource="https://purl.archive.org/urbooks#embodiment"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/vocab/frbr/core#embodimentOf -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/vocab/frbr/core#embodimentOf">
+        <owl:equivalentProperty rdf:resource="https://purl.archive.org/urbooks#embodimentOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/vocab/frbr/core#realization -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/vocab/frbr/core#realization">
+        <owl:equivalentProperty rdf:resource="https://purl.archive.org/urbooks#realization"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/vocab/frbr/core#realizationOf -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/vocab/frbr/core#realizationOf">
+        <owl:equivalentProperty rdf:resource="https://purl.archive.org/urbooks#realizationOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/vocab/frbr/core#responsibleEntity -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/vocab/frbr/core#responsibleEntity">
+        <owl:equivalentProperty rdf:resource="https://purl.archive.org/urbooks#responsibleEntity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/vocab/frbr/core#responsibleEntityOf -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/vocab/frbr/core#responsibleEntityOf">
+        <owl:equivalentProperty rdf:resource="https://purl.archive.org/urbooks#responsibleEntityOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/vocab/frbr/core#subject -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/vocab/frbr/core#subject">
+        <owl:equivalentProperty rdf:resource="https://purl.archive.org/urbooks#hasSubject"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://purl.archive.org/urbooks#embodiment -->
+
+    <owl:ObjectProperty rdf:about="https://purl.archive.org/urbooks#embodiment">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="https://purl.archive.org/urbooks#embodimentOf"/>
+        <rdfs:domain rdf:resource="https://purl.archive.org/urbooks#Expression"/>
+        <rdfs:range rdf:resource="https://purl.archive.org/urbooks#Manifestation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://purl.archive.org/urbooks#embodimentOf -->
+
+    <owl:ObjectProperty rdf:about="https://purl.archive.org/urbooks#embodimentOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="https://purl.archive.org/urbooks#Manifestation"/>
+        <rdfs:range rdf:resource="https://purl.archive.org/urbooks#Expression"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://purl.archive.org/urbooks#hasPublisher -->
+
+    <owl:ObjectProperty rdf:about="https://purl.archive.org/urbooks#hasPublisher">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://purl.archive.org/urbooks#hasSubject -->
+
+    <owl:ObjectProperty rdf:about="https://purl.archive.org/urbooks#hasSubject">
+        <owl:equivalentProperty rdf:resource="https://www.wikidata.org/wiki/Property:P136"/>
+        <owl:equivalentProperty rdf:resource="https://www.wikidata.org/wiki/Property:P921"/>
+        <owl:inverseOf rdf:resource="https://purl.archive.org/urbooks#isSubjectOf"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.org/spar/fabio/Work"/>
+                    <rdf:Description rdf:about="http://purl.org/vocab/frbr/core#Expression"/>
+                    <rdf:Description rdf:about="http://purl.org/vocab/frbr/core#Manifestation"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://purl.archive.org/urbooks#isSubjectOf -->
+
+    <owl:ObjectProperty rdf:about="https://purl.archive.org/urbooks#isSubjectOf">
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.org/spar/fabio/Work"/>
+                    <rdf:Description rdf:about="http://purl.org/vocab/frbr/core#Expression"/>
+                    <rdf:Description rdf:about="http://purl.org/vocab/frbr/core#Manifestation"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://purl.archive.org/urbooks#manifestation -->
+
+    <owl:ObjectProperty rdf:about="https://purl.archive.org/urbooks#manifestation">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="https://purl.archive.org/urbooks#manifestationOf"/>
+        <rdfs:domain rdf:resource="https://purl.archive.org/urbooks#Work"/>
+        <rdfs:range rdf:resource="https://purl.archive.org/urbooks#Manifestation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://purl.archive.org/urbooks#manifestationOf -->
+
+    <owl:ObjectProperty rdf:about="https://purl.archive.org/urbooks#manifestationOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="https://purl.archive.org/urbooks#Manifestation"/>
+        <rdfs:range rdf:resource="https://purl.archive.org/urbooks#Work"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://purl.archive.org/urbooks#realization -->
+
+    <owl:ObjectProperty rdf:about="https://purl.archive.org/urbooks#realization">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="https://purl.archive.org/urbooks#realizationOf"/>
+        <rdfs:domain rdf:resource="https://purl.archive.org/urbooks#Work"/>
+        <rdfs:range rdf:resource="https://purl.archive.org/urbooks#Expression"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://purl.archive.org/urbooks#realizationOf -->
+
+    <owl:ObjectProperty rdf:about="https://purl.archive.org/urbooks#realizationOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="https://purl.archive.org/urbooks#Expression"/>
+        <rdfs:range rdf:resource="https://purl.archive.org/urbooks#Work"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://purl.archive.org/urbooks#responsibleEntity -->
+
+    <owl:ObjectProperty rdf:about="https://purl.archive.org/urbooks#responsibleEntity">
+        <owl:equivalentProperty rdf:resource="https://www.wikidata.org/wiki/Property:P50"/>
+        <owl:inverseOf rdf:resource="https://purl.archive.org/urbooks#responsibleEntityOf"/>
+        <rdfs:range rdf:resource="https://purl.archive.org/urbooks#ResponsibleEntity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://purl.archive.org/urbooks#responsibleEntityOf -->
+
+    <owl:ObjectProperty rdf:about="https://purl.archive.org/urbooks#responsibleEntityOf">
+        <rdfs:domain rdf:resource="https://purl.archive.org/urbooks#ResponsibleEntity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://www.wikidata.org/wiki/Property:P136 -->
+
+    <owl:ObjectProperty rdf:about="https://www.wikidata.org/wiki/Property:P136"/>
+    
+
+
+    <!-- https://www.wikidata.org/wiki/Property:P50 -->
+
+    <owl:ObjectProperty rdf:about="https://www.wikidata.org/wiki/Property:P50"/>
+    
+
+
+    <!-- https://www.wikidata.org/wiki/Property:P921 -->
+
+    <owl:ObjectProperty rdf:about="https://www.wikidata.org/wiki/Property:P921"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://purl.archive.org/urbooks#abstract -->
+
+    <owl:DatatypeProperty rdf:about="https://purl.archive.org/urbooks#abstract"/>
+    
+
+
+    <!-- https://purl.archive.org/urbooks#rating -->
+
+    <owl:DatatypeProperty rdf:about="https://purl.archive.org/urbooks#rating"/>
+    
+
+
+    <!-- https://purl.archive.org/urbooks#ratingCount -->
+
+    <owl:DatatypeProperty rdf:about="https://purl.archive.org/urbooks#ratingCount"/>
+    
+
+
+    <!-- https://purl.archive.org/urbooks#readers -->
+
+    <owl:DatatypeProperty rdf:about="https://purl.archive.org/urbooks#readers"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/spar/fabio/Folksonomy -->
+
+    <owl:Class rdf:about="http://purl.org/spar/fabio/Folksonomy">
+        <owl:equivalentClass rdf:resource="https://purl.archive.org/urbooks#Folksonomy"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/spar/fabio/WebManifestation -->
+
+    <owl:Class rdf:about="http://purl.org/spar/fabio/WebManifestation"/>
+    
+
+
+    <!-- http://purl.org/spar/fabio/Work -->
+
+    <owl:Class rdf:about="http://purl.org/spar/fabio/Work">
+        <owl:equivalentClass rdf:resource="https://purl.archive.org/urbooks#Work"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/vocab/frbr/core#Expression -->
+
+    <owl:Class rdf:about="http://purl.org/vocab/frbr/core#Expression">
+        <owl:equivalentClass rdf:resource="https://purl.archive.org/urbooks#Expression"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/vocab/frbr/core#Manifestation -->
+
+    <owl:Class rdf:about="http://purl.org/vocab/frbr/core#Manifestation">
+        <owl:equivalentClass rdf:resource="https://purl.archive.org/urbooks#Manifestation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/vocab/frbr/core#ResponsibleEntity -->
+
+    <owl:Class rdf:about="http://purl.org/vocab/frbr/core#ResponsibleEntity">
+        <owl:equivalentClass rdf:resource="https://purl.archive.org/urbooks#ResponsibleEntity"/>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.archive.org/urbooks#Edition -->
+
+    <owl:Class rdf:about="https://purl.archive.org/urbooks#Edition">
+        <rdfs:subClassOf rdf:resource="https://purl.archive.org/urbooks#Manifestation"/>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.archive.org/urbooks#Expression -->
+
+    <owl:Class rdf:about="https://purl.archive.org/urbooks#Expression"/>
+    
+
+
+    <!-- https://purl.archive.org/urbooks#Folksonomy -->
+
+    <owl:Class rdf:about="https://purl.archive.org/urbooks#Folksonomy"/>
+    
+
+
+    <!-- https://purl.archive.org/urbooks#Manifestation -->
+
+    <owl:Class rdf:about="https://purl.archive.org/urbooks#Manifestation"/>
+    
+
+
+    <!-- https://purl.archive.org/urbooks#Reception -->
+
+    <owl:Class rdf:about="https://purl.archive.org/urbooks#Reception"/>
+    
+
+
+    <!-- https://purl.archive.org/urbooks#ResponsibleEntity -->
+
+    <owl:Class rdf:about="https://purl.archive.org/urbooks#ResponsibleEntity"/>
+    
+
+
+    <!-- https://purl.archive.org/urbooks#WebManifestation -->
+
+    <owl:Class rdf:about="https://purl.archive.org/urbooks#WebManifestation">
+        <rdfs:subClassOf rdf:resource="https://purl.archive.org/urbooks#Manifestation"/>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.archive.org/urbooks#Work -->
+
+    <owl:Class rdf:about="https://purl.archive.org/urbooks#Work"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://purl.archive.org/urbooks#Goodreads -->
+
+    <owl:NamedIndividual rdf:about="https://purl.archive.org/urbooks#Goodreads">
+        <rdf:type rdf:resource="https://purl.archive.org/urbooks#WebManifestation"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://purl.archive.org/urbooks#GoogleBooks -->
+
+    <owl:NamedIndividual rdf:about="https://purl.archive.org/urbooks#GoogleBooks">
+        <rdf:type rdf:resource="https://purl.archive.org/urbooks#WebManifestation"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://purl.archive.org/urbooks#OpenLibrary -->
+
+    <owl:NamedIndividual rdf:about="https://purl.archive.org/urbooks#OpenLibrary">
+        <rdf:type rdf:resource="https://purl.archive.org/urbooks#WebManifestation"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://purl.archive.org/urbooks#Wikipedia -->
+
+    <owl:NamedIndividual rdf:about="https://purl.archive.org/urbooks#Wikipedia">
+        <rdf:type rdf:resource="https://purl.archive.org/urbooks#WebManifestation"/>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi -->
+
