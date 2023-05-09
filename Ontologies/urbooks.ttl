@@ -1,0 +1,321 @@
+@prefix : <https://purl.archive.org/urbooks#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix skos1: <http://www.w3.org/2008/05/skos#> .
+@prefix terms: <http://purl.org/dc/terms/> .
+@base <https://purl.archive.org/urbooks> .
+
+<https://purl.archive.org/urbooks> rdf:type owl:Ontology ;
+                                    dc:creator """Marco Antonio Stranisci
+Rossana Damiano
+Viviana Patti"""@en ;
+                                    dc:date "2022-07-0" ;
+                                    dc:description """The Under-Represented Books Ontology is an ontology aimed at modelling works created by Western and Transnational writers born from 1808. The ontology relies on FRBR for the encoding of works, expressions, and editions, and on DOLCE for the representations of prizes and publications.
+The Under-Represented Books Ontology is parte of the Under-Represented Writer project, which is aimed at exploring and mitigating the potential lack of representation of non-Western writers."""@en ;
+                                    dc:rights "CC BY-NC 4.0" ;
+                                    dc:source "Endpoint SPARQL: https://kgccc.di.unito.it/sparql/underrepresented" ,
+                                              "https://underrepresented.di.unito.it/" ;
+                                    dc:title "The Ontology of Under-Represented Books"@en ;
+                                    owl:versionInfo "OWL 2" .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/elements/1.1/creator
+dc:creator rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/date
+dc:date rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/description
+dc:description rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/rights
+dc:rights rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/source
+dc:source rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/title
+dc:title rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://purl.org/dc/terms/creator
+terms:creator rdf:type owl:ObjectProperty ;
+              owl:equivalentProperty :responsibleEntity .
+
+
+###  http://purl.org/dc/terms/publisher
+terms:publisher rdf:type owl:ObjectProperty ;
+                owl:equivalentProperty :hasPublisher .
+
+
+###  http://purl.org/spar/fabio/hasManifestation
+<http://purl.org/spar/fabio/hasManifestation> rdf:type owl:ObjectProperty ;
+                                              owl:equivalentProperty :manifestation .
+
+
+###  http://purl.org/spar/fabio/isManifestationOf
+<http://purl.org/spar/fabio/isManifestationOf> rdf:type owl:ObjectProperty ;
+                                               owl:equivalentProperty :manifestationOf .
+
+
+###  http://purl.org/vocab/frbr/core#embodiment
+<http://purl.org/vocab/frbr/core#embodiment> rdf:type owl:ObjectProperty ;
+                                             owl:equivalentProperty :embodiment .
+
+
+###  http://purl.org/vocab/frbr/core#embodimentOf
+<http://purl.org/vocab/frbr/core#embodimentOf> rdf:type owl:ObjectProperty ;
+                                               owl:equivalentProperty :embodimentOf .
+
+
+###  http://purl.org/vocab/frbr/core#realization
+<http://purl.org/vocab/frbr/core#realization> rdf:type owl:ObjectProperty ;
+                                              owl:equivalentProperty :realization .
+
+
+###  http://purl.org/vocab/frbr/core#realizationOf
+<http://purl.org/vocab/frbr/core#realizationOf> rdf:type owl:ObjectProperty ;
+                                                owl:equivalentProperty :realizationOf .
+
+
+###  http://purl.org/vocab/frbr/core#responsibleEntity
+<http://purl.org/vocab/frbr/core#responsibleEntity> rdf:type owl:ObjectProperty ;
+                                                    owl:equivalentProperty :responsibleEntity .
+
+
+###  http://purl.org/vocab/frbr/core#responsibleEntityOf
+<http://purl.org/vocab/frbr/core#responsibleEntityOf> rdf:type owl:ObjectProperty ;
+                                                      owl:equivalentProperty :responsibleEntityOf .
+
+
+###  http://purl.org/vocab/frbr/core#subject
+<http://purl.org/vocab/frbr/core#subject> rdf:type owl:ObjectProperty ;
+                                          owl:equivalentProperty :hasSubject .
+
+
+###  https://purl.archive.org/urbooks#embodiment
+:embodiment rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf owl:topObjectProperty ;
+            owl:inverseOf :embodimentOf ;
+            rdfs:domain :Expression ;
+            rdfs:range :Manifestation .
+
+
+###  https://purl.archive.org/urbooks#embodimentOf
+:embodimentOf rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf owl:topObjectProperty ;
+              rdfs:domain :Manifestation ;
+              rdfs:range :Expression .
+
+
+###  https://purl.archive.org/urbooks#hasPublisher
+:hasPublisher rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf owl:topObjectProperty .
+
+
+###  https://purl.archive.org/urbooks#hasSubject
+:hasSubject rdf:type owl:ObjectProperty ;
+            owl:equivalentProperty <https://www.wikidata.org/wiki/Property:P136> ,
+                                   <https://www.wikidata.org/wiki/Property:P921> ;
+            owl:inverseOf :isSubjectOf ;
+            rdfs:domain [ rdf:type owl:Class ;
+                          owl:unionOf ( <http://purl.org/spar/fabio/Work>
+                                        <http://purl.org/vocab/frbr/core#Expression>
+                                        <http://purl.org/vocab/frbr/core#Manifestation>
+                                      )
+                        ] .
+
+
+###  https://purl.archive.org/urbooks#isSubjectOf
+:isSubjectOf rdf:type owl:ObjectProperty ;
+             rdfs:range [ rdf:type owl:Class ;
+                          owl:unionOf ( <http://purl.org/spar/fabio/Work>
+                                        <http://purl.org/vocab/frbr/core#Expression>
+                                        <http://purl.org/vocab/frbr/core#Manifestation>
+                                      )
+                        ] .
+
+
+###  https://purl.archive.org/urbooks#manifestation
+:manifestation rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf owl:topObjectProperty ;
+               owl:inverseOf :manifestationOf ;
+               rdfs:domain :Work ;
+               rdfs:range :Manifestation .
+
+
+###  https://purl.archive.org/urbooks#manifestationOf
+:manifestationOf rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf owl:topObjectProperty ;
+                 rdfs:domain :Manifestation ;
+                 rdfs:range :Work .
+
+
+###  https://purl.archive.org/urbooks#realization
+:realization rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf owl:topObjectProperty ;
+             owl:inverseOf :realizationOf ;
+             rdfs:domain :Work ;
+             rdfs:range :Expression .
+
+
+###  https://purl.archive.org/urbooks#realizationOf
+:realizationOf rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf owl:topObjectProperty ;
+               rdfs:domain :Expression ;
+               rdfs:range :Work .
+
+
+###  https://purl.archive.org/urbooks#responsibleEntity
+:responsibleEntity rdf:type owl:ObjectProperty ;
+                   owl:equivalentProperty <https://www.wikidata.org/wiki/Property:P50> ;
+                   owl:inverseOf :responsibleEntityOf ;
+                   rdfs:range :ResponsibleEntity .
+
+
+###  https://purl.archive.org/urbooks#responsibleEntityOf
+:responsibleEntityOf rdf:type owl:ObjectProperty ;
+                     rdfs:domain :ResponsibleEntity .
+
+
+###  https://www.wikidata.org/wiki/Property:P136
+<https://www.wikidata.org/wiki/Property:P136> rdf:type owl:ObjectProperty .
+
+
+###  https://www.wikidata.org/wiki/Property:P50
+<https://www.wikidata.org/wiki/Property:P50> rdf:type owl:ObjectProperty .
+
+
+###  https://www.wikidata.org/wiki/Property:P921
+<https://www.wikidata.org/wiki/Property:P921> rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  https://purl.archive.org/urbooks#abstract
+:abstract rdf:type owl:DatatypeProperty .
+
+
+###  https://purl.archive.org/urbooks#rating
+:rating rdf:type owl:DatatypeProperty .
+
+
+###  https://purl.archive.org/urbooks#ratingCount
+:ratingCount rdf:type owl:DatatypeProperty .
+
+
+###  https://purl.archive.org/urbooks#readers
+:readers rdf:type owl:DatatypeProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://purl.org/spar/fabio/Folksonomy
+<http://purl.org/spar/fabio/Folksonomy> rdf:type owl:Class ;
+                                        owl:equivalentClass :Folksonomy .
+
+
+###  http://purl.org/spar/fabio/WebManifestation
+<http://purl.org/spar/fabio/WebManifestation> rdf:type owl:Class .
+
+
+###  http://purl.org/spar/fabio/Work
+<http://purl.org/spar/fabio/Work> rdf:type owl:Class ;
+                                  owl:equivalentClass :Work .
+
+
+###  http://purl.org/vocab/frbr/core#Expression
+<http://purl.org/vocab/frbr/core#Expression> rdf:type owl:Class ;
+                                             owl:equivalentClass :Expression .
+
+
+###  http://purl.org/vocab/frbr/core#Manifestation
+<http://purl.org/vocab/frbr/core#Manifestation> rdf:type owl:Class ;
+                                                owl:equivalentClass :Manifestation .
+
+
+###  http://purl.org/vocab/frbr/core#ResponsibleEntity
+<http://purl.org/vocab/frbr/core#ResponsibleEntity> rdf:type owl:Class ;
+                                                    owl:equivalentClass :ResponsibleEntity .
+
+
+###  https://purl.archive.org/urbooks#Edition
+:Edition rdf:type owl:Class ;
+         rdfs:subClassOf :Manifestation .
+
+
+###  https://purl.archive.org/urbooks#Expression
+:Expression rdf:type owl:Class .
+
+
+###  https://purl.archive.org/urbooks#Folksonomy
+:Folksonomy rdf:type owl:Class .
+
+
+###  https://purl.archive.org/urbooks#Manifestation
+:Manifestation rdf:type owl:Class .
+
+
+###  https://purl.archive.org/urbooks#Reception
+:Reception rdf:type owl:Class .
+
+
+###  https://purl.archive.org/urbooks#ResponsibleEntity
+:ResponsibleEntity rdf:type owl:Class .
+
+
+###  https://purl.archive.org/urbooks#WebManifestation
+:WebManifestation rdf:type owl:Class ;
+                  rdfs:subClassOf :Manifestation .
+
+
+###  https://purl.archive.org/urbooks#Work
+:Work rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  https://purl.archive.org/urbooks#Goodreads
+:Goodreads rdf:type owl:NamedIndividual ,
+                    :WebManifestation .
+
+
+###  https://purl.archive.org/urbooks#GoogleBooks
+:GoogleBooks rdf:type owl:NamedIndividual ,
+                      :WebManifestation .
+
+
+###  https://purl.archive.org/urbooks#OpenLibrary
+:OpenLibrary rdf:type owl:NamedIndividual ,
+                      :WebManifestation .
+
+
+###  https://purl.archive.org/urbooks#Wikipedia
+:Wikipedia rdf:type owl:NamedIndividual ,
+                    :WebManifestation .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi

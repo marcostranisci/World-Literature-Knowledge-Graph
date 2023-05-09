@@ -1,0 +1,1336 @@
+@prefix : <https://purl.archive.org/urwriters#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix urb: <https://purl.archive.org/urbooks#> .
+@prefix urw: <https://purl.archive.org/urwriters#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix obda: <https://w3id.org/obda/vocabulary#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix terms: <http://purl.org/dc/terms/> .
+@prefix x_1.1: <http://purl.org/dc/elements/1.1/> .
+@prefix oboInOwl: <http://www.geneontology.org/formats/oboInOwl#> .
+@base <https://purl.archive.org/urwriters> .
+
+<https://purl.archive.org/urwriters> rdf:type owl:Ontology ;
+                                      owl:imports <https://purl.archive.org/urbooks> ;
+                                      x_1.1:contributor """Marco Antonio Stranisci
+Rossana Damiano
+Valerio Basile
+Viviana Patti"""@en ;
+                                      x_1.1:date "2021-04-23" ;
+                                      x_1.1:description """L'Ontologia degli Under-represented Writers (URW) è un modello semantico che permette di rappresentare informazioni sui Transnational Writers, ovvero autori nati in un paese non Occidentale o appartenenti a una minoranza. L'ontologia si basa sugli Ontology Design Patterns per la rappresentazione degli eventi biografici relativi a questi autori:
+- il 'Time Indexed Person Status' è derivato dal 'Time Indexed Person Role' e rappresenta la condizione per cui una persona vive in un paese diverso da quello di nascita in un periodo di tempo specifico;
+- il pattern 'Migration' è modellato a partire dal 'Basic Plan Execution' in quanto una migrazione è rappresentata come una situazione in cui un agente si sposta da un paese all'altro per soddisfare un determinato piano."""@it ,
+                                                        """The Ontology of Under-represented Writers (URW) is a semantic model aimed at encoding information about Transnational Writers, namely people who was born in a non-Western country or who belong to a minority group. The ontology relies on the ODP framework to represent model biographical events about such writers:
+- the 'Time Indexed Person Status' is derived from the 'Time Indexed Person Role' and represents the condition of living in a given country during a specific Time Interval;
+- the 'Migration' pattern, which is modeled on the 'Basic Plan Execution' since a migration is represented as a situation in which an agent moves from a place to another, in order to fulfill a plan."""@en ;
+                                      x_1.1:language ""@en ;
+                                      x_1.1:rights "Attribution-NonCommercial-ShareAlike 4.0 International"@en ;
+                                      x_1.1:source "https://purl.archive.org/urwriters/lode" ;
+                                      x_1.1:title "Under-Represented Writers Ontology"@en ;
+                                      rdfs:comment "Endpoint SPARQL: https://kgccc.di.unito.it/sparql/underrepresented" ;
+                                      owl:versionInfo "OWL 2" .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/elements/1.1/contributor
+x_1.1:contributor rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/date
+x_1.1:date rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/description
+x_1.1:description rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/language
+x_1.1:language rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/rights
+x_1.1:rights rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/title
+x_1.1:title rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2003/01/geo/wgs84_pos#lat
+geo:lat rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2003/01/geo/wgs84_pos#long
+geo:long rdf:type owl:AnnotationProperty .
+
+
+###  https://purl.archive.org/urwriters#image
+urw:image rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://purl.org/dc/terms/language
+terms:language rdf:type owl:ObjectProperty ;
+               owl:equivalentProperty urw:language .
+
+
+###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#defines
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#defines> rdf:type owl:ObjectProperty ;
+                                                                owl:equivalentProperty urw:defines .
+
+
+###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#expresses
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#expresses> rdf:type owl:ObjectProperty ;
+                                                                  owl:equivalentProperty urw:expresses .
+
+
+###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasComponent
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasComponent> rdf:type owl:ObjectProperty ;
+                                                                     owl:equivalentProperty urw:hasComponent .
+
+
+###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasPart
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasPart> rdf:type owl:ObjectProperty ;
+                                                                owl:equivalentProperty urw:hasPart .
+
+
+###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasParticipant
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasParticipant> rdf:type owl:ObjectProperty ;
+                                                                       owl:equivalentProperty urw:hasParticipant .
+
+
+###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasRole
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasRole> rdf:type owl:ObjectProperty ;
+                                                                owl:equivalentProperty urw:hasRole .
+
+
+###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasSetting
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasSetting> rdf:type owl:ObjectProperty ;
+                                                                   owl:equivalentProperty urw:hasSetting .
+
+
+###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasTimeInterval
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasTimeInterval> rdf:type owl:ObjectProperty ;
+                                                                        owl:equivalentProperty urw:hasTimeInterval .
+
+
+###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isComponentOf
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isComponentOf> rdf:type owl:ObjectProperty ;
+                                                                      owl:equivalentProperty urw:isComponentOf .
+
+
+###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isDefinedIn
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isDefinedIn> rdf:type owl:ObjectProperty ;
+                                                                    owl:equivalentProperty urw:isDefinedBy .
+
+
+###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isExpressedBy
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isExpressedBy> rdf:type owl:ObjectProperty ;
+                                                                      owl:equivalentProperty urw:isExpressedBy .
+
+
+###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isPartOf
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isPartOf> rdf:type owl:ObjectProperty ;
+                                                                 owl:equivalentProperty urw:isPartOf ;
+                                                                 owl:inverseOf urw:hasPart .
+
+
+###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isParticipantIn
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isParticipantIn> rdf:type owl:ObjectProperty ;
+                                                                        owl:equivalentProperty urw:isParticipantIn .
+
+
+###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isRoleOf
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isRoleOf> rdf:type owl:ObjectProperty ;
+                                                                 owl:equivalentProperty urw:isRoleOf .
+
+
+###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isSatisfiedBy
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isSatisfiedBy> rdf:type owl:ObjectProperty ;
+                                                                      owl:equivalentProperty urw:isSatisfiedBy .
+
+
+###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isSettingFor
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isSettingFor> rdf:type owl:ObjectProperty ;
+                                                                     owl:equivalentProperty urw:isSettingFor .
+
+
+###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#satisfies
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#satisfies> rdf:type owl:ObjectProperty ;
+                                                                  owl:equivalentProperty urw:satisfies .
+
+
+###  http://www.w3.org/ns/prov#activity
+<http://www.w3.org/ns/prov#activity> rdf:type owl:ObjectProperty ;
+                                     owl:equivalentProperty urw:activity .
+
+
+###  http://www.w3.org/ns/prov#agent
+<http://www.w3.org/ns/prov#agent> rdf:type owl:ObjectProperty ;
+                                  owl:equivalentProperty urw:agent .
+
+
+###  http://www.w3.org/ns/prov#entity
+<http://www.w3.org/ns/prov#entity> rdf:type owl:ObjectProperty ;
+                                   owl:equivalentProperty urw:entity .
+
+
+###  http://www.w3.org/ns/prov#generated
+<http://www.w3.org/ns/prov#generated> rdf:type owl:ObjectProperty ;
+                                      owl:equivalentProperty urw:generated .
+
+
+###  http://www.w3.org/ns/prov#influenced
+<http://www.w3.org/ns/prov#influenced> rdf:type owl:ObjectProperty ;
+                                       owl:equivalentProperty urw:influenced .
+
+
+###  http://www.w3.org/ns/prov#influencer
+<http://www.w3.org/ns/prov#influencer> rdf:type owl:ObjectProperty ;
+                                       owl:equivalentProperty urw:influencer .
+
+
+###  http://www.w3.org/ns/prov#qualifiedAssociation
+<http://www.w3.org/ns/prov#qualifiedAssociation> rdf:type owl:ObjectProperty ;
+                                                 owl:equivalentProperty urw:qualifiedAssociation .
+
+
+###  http://www.w3.org/ns/prov#qualifiedAttribution
+<http://www.w3.org/ns/prov#qualifiedAttribution> rdf:type owl:ObjectProperty ;
+                                                 owl:equivalentProperty urw:qualifiedAttribution .
+
+
+###  http://www.w3.org/ns/prov#qualifiedDerivation
+<http://www.w3.org/ns/prov#qualifiedDerivation> rdf:type owl:ObjectProperty ;
+                                                owl:equivalentProperty urw:qualifiedDerivation .
+
+
+###  http://www.w3.org/ns/prov#qualifiedInfluence
+<http://www.w3.org/ns/prov#qualifiedInfluence> rdf:type owl:ObjectProperty ;
+                                               owl:equivalentProperty urw:qualifiedInfluence .
+
+
+###  http://www.w3.org/ns/prov#wasAssociatedWith
+<http://www.w3.org/ns/prov#wasAssociatedWith> rdf:type owl:ObjectProperty ;
+                                              owl:equivalentProperty urw:wasAssociatedWith .
+
+
+###  http://www.w3.org/ns/prov#wasAttributedTo
+<http://www.w3.org/ns/prov#wasAttributedTo> rdf:type owl:ObjectProperty ;
+                                            owl:equivalentProperty urw:wasAttributedTo .
+
+
+###  http://www.w3.org/ns/prov#wasDerivedFrom
+<http://www.w3.org/ns/prov#wasDerivedFrom> rdf:type owl:ObjectProperty ;
+                                           owl:equivalentProperty urw:wasDerivedFrom .
+
+
+###  http://www.w3.org/ns/prov#wasInfluencedBy
+<http://www.w3.org/ns/prov#wasInfluencedBy> rdf:type owl:ObjectProperty ;
+                                            owl:equivalentProperty urw:wasInfluencedBy .
+
+
+###  http://www.wikidata.org/prop/direct/P21
+<http://www.wikidata.org/prop/direct/P21> rdf:type owl:ObjectProperty ;
+                                          owl:equivalentProperty urw:gender .
+
+
+###  http://www.wikidata.org/prop/direct/P27
+<http://www.wikidata.org/prop/direct/P27> rdf:type owl:ObjectProperty ;
+                                          owl:equivalentProperty urw:citizenship .
+
+
+###  http://www.wikidata.org/prop/direct/P407
+<http://www.wikidata.org/prop/direct/P407> rdf:type owl:ObjectProperty ;
+                                           owl:equivalentProperty urw:language .
+
+
+###  https://purl.archive.org/urbooks#embodiment
+urb:embodiment rdf:type owl:ObjectProperty .
+
+
+###  https://purl.archive.org/urbooks#hasSubject
+urb:hasSubject rdf:type owl:ObjectProperty .
+
+
+###  https://purl.archive.org/urwriters#activity
+urw:activity rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf urw:influencer ;
+             rdfs:domain urw:ActivityInfluence .
+
+
+###  https://purl.archive.org/urwriters#agent
+urw:agent rdf:type owl:ObjectProperty ;
+          rdfs:subPropertyOf urw:influencer ;
+          rdfs:domain urw:AgentInfluence ;
+          rdfs:range urw:Agent .
+
+
+###  https://purl.archive.org/urwriters#belongsToMinority
+urw:belongsToMinority rdf:type owl:ObjectProperty ;
+                      rdfs:subPropertyOf urw:isLinkedTo ;
+                      owl:propertyChainAxiom ( urw:hasSetting
+                                               <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasRole>
+                                             ) ;
+                      rdfs:label "belongs to minority" .
+
+
+###  https://purl.archive.org/urwriters#citizenship
+urw:citizenship rdf:type owl:ObjectProperty ;
+                rdfs:label "citizenship" .
+
+
+###  https://purl.archive.org/urwriters#countryOfBirth
+urw:countryOfBirth rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf urw:isLinkedTo ;
+                   rdfs:label "country of birth" .
+
+
+###  https://purl.archive.org/urwriters#countryOfDeath
+urw:countryOfDeath rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf urw:isLinkedTo ;
+                   rdfs:label "country of death" .
+
+
+###  https://purl.archive.org/urwriters#defines
+urw:defines rdf:type owl:ObjectProperty ;
+            owl:inverseOf urw:isDefinedBy ;
+            rdfs:domain urw:Description ;
+            rdfs:range urw:Role ;
+            rdfs:comment "to be used to define the role of an entity within a situation or an event"@en .
+
+
+###  https://purl.archive.org/urwriters#entity
+urw:entity rdf:type owl:ObjectProperty ;
+           rdfs:subPropertyOf urw:influencer ;
+           rdfs:domain urw:EntityInfluence .
+
+
+###  https://purl.archive.org/urwriters#expresses
+urw:expresses rdf:type owl:ObjectProperty ;
+              owl:inverseOf urw:isExpressedBy ;
+              rdfs:domain urw:InformationObject ;
+              rdfs:range [ rdf:type owl:Class ;
+                           owl:unionOf ( urw:Concept
+                                         urw:Description
+                                       )
+                         ] ;
+              rdfs:comment "The meaning expressed by an information object (eg: the text express Fear)"@en .
+
+
+###  https://purl.archive.org/urwriters#gender
+urw:gender rdf:type owl:ObjectProperty ;
+           rdfs:domain urw:Person ;
+           rdfs:range urw:Gender ;
+           rdfs:comment "the gender of a person, mapped with the Wikidata property wdt:p21"@en .
+
+
+###  https://purl.archive.org/urwriters#generated
+urw:generated rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf urw:influenced ;
+              rdfs:domain urw:Publication .
+
+
+###  https://purl.archive.org/urwriters#hasComponent
+urw:hasComponent rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf urw:hasPart ;
+                 owl:inverseOf urw:isComponentOf ;
+                 rdfs:domain [ rdf:type owl:Class ;
+                               owl:unionOf ( urw:Description
+                                             urw:Situation
+                                           )
+                             ] .
+
+
+###  https://purl.archive.org/urwriters#hasPart
+urw:hasPart rdf:type owl:ObjectProperty .
+
+
+###  https://purl.archive.org/urwriters#hasParticipant
+urw:hasParticipant rdf:type owl:ObjectProperty ;
+                   owl:inverseOf urw:isParticipantIn ;
+                   rdfs:domain urw:Event ;
+                   rdfs:label "has participant" .
+
+
+###  https://purl.archive.org/urwriters#hasRole
+urw:hasRole rdf:type owl:ObjectProperty ;
+            owl:inverseOf urw:isRoleOf ;
+            rdfs:domain urw:Agent ;
+            rdfs:range urw:Role ;
+            rdfs:label "role" .
+
+
+###  https://purl.archive.org/urwriters#hasSetting
+urw:hasSetting rdf:type owl:ObjectProperty ;
+               owl:inverseOf urw:isSettingFor ;
+               rdfs:range urw:Situation ;
+               rdfs:label "has Setting" .
+
+
+###  https://purl.archive.org/urwriters#hasTimeInterval
+urw:hasTimeInterval rdf:type owl:ObjectProperty ;
+                    rdfs:domain urw:Event ;
+                    rdfs:range urw:TimeInterval .
+
+
+###  https://purl.archive.org/urwriters#influenced
+urw:influenced rdf:type owl:ObjectProperty .
+
+
+###  https://purl.archive.org/urwriters#influencer
+urw:influencer rdf:type owl:ObjectProperty .
+
+
+###  https://purl.archive.org/urwriters#isComponentOf
+urw:isComponentOf rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf urw:isPartOf .
+
+
+###  https://purl.archive.org/urwriters#isDefinedBy
+urw:isDefinedBy rdf:type owl:ObjectProperty ;
+                rdfs:range urw:Description .
+
+
+###  https://purl.archive.org/urwriters#isDescribedBy
+urw:isDescribedBy rdf:type owl:ObjectProperty .
+
+
+###  https://purl.archive.org/urwriters#isExpressedBy
+urw:isExpressedBy rdf:type owl:ObjectProperty ;
+                  rdfs:domain [ rdf:type owl:Class ;
+                                owl:unionOf ( urw:Concept
+                                              urw:Description
+                                            )
+                              ] ;
+                  rdfs:range urw:InformationObject .
+
+
+###  https://purl.archive.org/urwriters#isLinkedTo
+urw:isLinkedTo rdf:type owl:ObjectProperty .
+
+
+###  https://purl.archive.org/urwriters#isPartOf
+urw:isPartOf rdf:type owl:ObjectProperty .
+
+
+###  https://purl.archive.org/urwriters#isParticipantIn
+urw:isParticipantIn rdf:type owl:ObjectProperty ;
+                    rdfs:range urw:Event .
+
+
+###  https://purl.archive.org/urwriters#isRoleOf
+urw:isRoleOf rdf:type owl:ObjectProperty ;
+             rdfs:domain urw:Role ;
+             rdfs:range urw:Agent .
+
+
+###  https://purl.archive.org/urwriters#isSatisfiedBy
+urw:isSatisfiedBy rdf:type owl:ObjectProperty ;
+                  owl:inverseOf urw:satisfies ;
+                  rdfs:domain urw:Description .
+
+
+###  https://purl.archive.org/urwriters#isSettingFor
+urw:isSettingFor rdf:type owl:ObjectProperty ;
+                 rdfs:domain urw:Situation .
+
+
+###  https://purl.archive.org/urwriters#language
+urw:language rdf:type owl:ObjectProperty ;
+             rdfs:range urw:Language ;
+             rdfs:label "language" .
+
+
+###  https://purl.archive.org/urwriters#numberOfRatings
+urw:numberOfRatings rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf urw:isLinkedTo ;
+                    rdfs:label "number of ratings" .
+
+
+###  https://purl.archive.org/urwriters#numberOfReaders
+urw:numberOfReaders rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf urw:isLinkedTo ;
+                    rdfs:label "number of readers" .
+
+
+###  https://purl.archive.org/urwriters#providesKnowledgeOn
+urw:providesKnowledgeOn rdf:type owl:ObjectProperty ;
+                        rdfs:domain urw:InformationObject ;
+                        owl:propertyChainAxiom ( urw:expresses
+                                                 urw:defines
+                                                 urw:isRoleOf
+                                               ) ;
+                        rdfs:comment """This property has been created through a property chain derived from DOLCE. It links an \"Information Object' to the entity the object refers to. 
+The property chain works as follow: the \"Information Object\" expressess one or more \"Descriptions\" that defines the role of a Person. For example, the Wikipedia biography of Chinua Achebe expresses a number of description (eg: being a migrant teacher in the USA) that defined as many roles (eg: migrant teacher) he had through his life"""@en .
+
+
+###  https://purl.archive.org/urwriters#publishingLanguage
+urw:publishingLanguage rdf:type owl:ObjectProperty ;
+                       rdfs:subPropertyOf urw:isLinkedTo ;
+                       owl:propertyChainAxiom ( urb:embodiment
+                                                <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isParticipantIn>
+                                                urw:language
+                                              ) ;
+                       rdfs:label "publishing language" .
+
+
+###  https://purl.archive.org/urwriters#qualifiedAssociation
+urw:qualifiedAssociation rdf:type owl:ObjectProperty ;
+                         rdfs:subPropertyOf urw:qualifiedInfluence ;
+                         rdfs:range urw:Association .
+
+
+###  https://purl.archive.org/urwriters#qualifiedAttribution
+urw:qualifiedAttribution rdf:type owl:ObjectProperty ;
+                         rdfs:subPropertyOf urw:qualifiedInfluence ;
+                         rdfs:range urw:Attribution .
+
+
+###  https://purl.archive.org/urwriters#qualifiedDerivation
+urw:qualifiedDerivation rdf:type owl:ObjectProperty ;
+                        rdfs:subPropertyOf urw:qualifiedInfluence .
+
+
+###  https://purl.archive.org/urwriters#qualifiedInfluence
+urw:qualifiedInfluence rdf:type owl:ObjectProperty .
+
+
+###  https://purl.archive.org/urwriters#rated
+urw:rated rdf:type owl:ObjectProperty ;
+          rdfs:subPropertyOf urw:isLinkedTo ;
+          rdfs:label "rated" .
+
+
+###  https://purl.archive.org/urwriters#received
+urw:received rdf:type owl:ObjectProperty ;
+             rdfs:range urb:Reception ;
+             rdfs:label "received" .
+
+
+###  https://purl.archive.org/urwriters#satisfies
+urw:satisfies rdf:type owl:ObjectProperty ;
+              rdfs:domain urw:Migration ;
+              rdfs:range urw:Description .
+
+
+###  https://purl.archive.org/urwriters#wasAssociatedWith
+urw:wasAssociatedWith rdf:type owl:ObjectProperty ;
+                      rdfs:subPropertyOf urw:wasInfluencedBy ;
+                      rdfs:domain urw:Association ;
+                      owl:propertyChainAxiom ( urw:qualifiedAssociation
+                                               urw:agent
+                                             ) .
+
+
+###  https://purl.archive.org/urwriters#wasAttributedTo
+urw:wasAttributedTo rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf urw:wasInfluencedBy ;
+                    owl:propertyChainAxiom ( urw:qualifiedAttribution
+                                             urw:agent
+                                           ) .
+
+
+###  https://purl.archive.org/urwriters#wasDerivedFrom
+urw:wasDerivedFrom rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf urw:wasInfluencedBy ;
+                   owl:propertyChainAxiom ( urw:qualifiedDerivation
+                                            urw:entity
+                                          ) .
+
+
+###  https://purl.archive.org/urwriters#wasInfluencedBy
+urw:wasInfluencedBy rdf:type owl:ObjectProperty .
+
+
+###  https://purl.archive.org/urwriters#wasPublishedBy
+urw:wasPublishedBy rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf urw:isLinkedTo ;
+                   rdfs:range urw:Organization ;
+                   owl:propertyChainAxiom ( urb:embodiment
+                                            <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isParticipantIn>
+                                            urw:wasAssociatedWith
+                                          ) ;
+                   rdfs:label "published by" .
+
+
+###  https://purl.archive.org/urwriters#wasPublishedWhen
+urw:wasPublishedWhen rdf:type owl:ObjectProperty ;
+                     rdfs:subPropertyOf urw:isLinkedTo ;
+                     owl:propertyChainAxiom ( urb:embodiment
+                                              <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isParticipantIn>
+                                              <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasTimeInterval>
+                                            ) ;
+                     rdfs:label "publishing date" .
+
+
+###  https://purl.archive.org/urwriters#wasPublishedWhere
+urw:wasPublishedWhere rdf:type owl:ObjectProperty ;
+                      rdfs:subPropertyOf urw:isLinkedTo ;
+                      rdf:type owl:SymmetricProperty ;
+                      owl:propertyChainAxiom ( urb:embodiment
+                                               <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isParticipantIn>
+                                               <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasParticipant>
+                                             ) ;
+                      rdfs:label "publishing place" .
+
+
+###  https://purl.archive.org/urwriters#yearOfBirth
+urw:yearOfBirth rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf urw:isLinkedTo ;
+                rdfs:label "year of birth" .
+
+
+###  https://purl.archive.org/urwriters#yearOfDeath
+urw:yearOfDeath rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf urw:isLinkedTo ;
+                rdfs:label "year of death" .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  https://purl.archive.org/urbooks#notable
+urb:notable rdf:type owl:DatatypeProperty .
+
+
+###  https://purl.archive.org/urbooks#rating
+urb:rating rdf:type owl:DatatypeProperty ;
+           rdfs:label "rating" .
+
+
+###  https://purl.archive.org/urbooks#ratingCount
+urb:ratingCount rdf:type owl:DatatypeProperty ;
+                rdfs:label "number of ratings" .
+
+
+###  https://purl.archive.org/urbooks#readers
+urb:readers rdf:type owl:DatatypeProperty ;
+            rdfs:label "readers" .
+
+
+###  https://purl.archive.org/urwriters#HDI
+urw:HDI rdf:type owl:DatatypeProperty ;
+        rdfs:label "human development index" .
+
+
+###  https://purl.archive.org/urwriters#date
+urw:date rdf:type owl:DatatypeProperty ;
+         rdfs:label "date" .
+
+
+###  https://purl.archive.org/urwriters#hasIdentifier
+urw:hasIdentifier rdf:type owl:DatatypeProperty ;
+                  rdfs:label "has identifier" .
+
+
+###  https://purl.archive.org/urwriters#mobilityScore
+urw:mobilityScore rdf:type owl:DatatypeProperty ;
+                  rdfs:label "mobility score" .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://lexvo.org/ontology#Language
+<http://lexvo.org/ontology#Language> rdf:type owl:Class ;
+                                     owl:equivalentClass urw:Language .
+
+
+###  http://purl.obolibrary.org/obo/NCIT_C17357
+obo:NCIT_C17357 rdf:type owl:Class ;
+                owl:equivalentClass urw:Gender ;
+                rdfs:subClassOf urw:PersonalAttribute .
+
+
+###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Action
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Action> rdf:type owl:Class ;
+                                                               owl:equivalentClass <http://www.w3.org/ns/prov#Activity> .
+
+
+###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Agent
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Agent> rdf:type owl:Class ;
+                                                              owl:equivalentClass urw:Agent .
+
+
+###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Concept
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Concept> rdf:type owl:Class ;
+                                                                owl:equivalentClass urw:Concept .
+
+
+###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Description
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Description> rdf:type owl:Class ;
+                                                                    owl:equivalentClass urw:Description .
+
+
+###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Event
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Event> rdf:type owl:Class ;
+                                                              owl:equivalentClass urw:Event .
+
+
+###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#InformationObject
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#InformationObject> rdf:type owl:Class ;
+                                                                          owl:equivalentClass urw:InformationObject .
+
+
+###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Place
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Place> rdf:type owl:Class .
+
+
+###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Role
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Role> rdf:type owl:Class ;
+                                                             owl:equivalentClass urw:Role .
+
+
+###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Situation
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Situation> rdf:type owl:Class ;
+                                                                  owl:equivalentClass urw:Situation .
+
+
+###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#TimeInterval
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#TimeInterval> rdf:type owl:Class ;
+                                                                     owl:equivalentClass urw:TimeInterval .
+
+
+###  http://www.w3.org/ns/prov#Activity
+<http://www.w3.org/ns/prov#Activity> rdf:type owl:Class .
+
+
+###  http://www.w3.org/ns/prov#ActivityInfluence
+<http://www.w3.org/ns/prov#ActivityInfluence> rdf:type owl:Class ;
+                                              rdfs:subClassOf urw:Description .
+
+
+###  http://www.w3.org/ns/prov#Agent
+<http://www.w3.org/ns/prov#Agent> rdf:type owl:Class ;
+                                  owl:equivalentClass urw:Agent .
+
+
+###  http://www.w3.org/ns/prov#AgentInfluence
+<http://www.w3.org/ns/prov#AgentInfluence> rdf:type owl:Class ;
+                                           rdfs:subClassOf urw:Description .
+
+
+###  http://www.w3.org/ns/prov#Association
+<http://www.w3.org/ns/prov#Association> rdf:type owl:Class ;
+                                        rdfs:subClassOf <http://www.w3.org/ns/prov#AgentInfluence> .
+
+
+###  http://www.w3.org/ns/prov#Attribution
+<http://www.w3.org/ns/prov#Attribution> rdf:type owl:Class ;
+                                        rdfs:subClassOf <http://www.w3.org/ns/prov#AgentInfluence> .
+
+
+###  http://www.w3.org/ns/prov#Delegation
+<http://www.w3.org/ns/prov#Delegation> rdf:type owl:Class ;
+                                       rdfs:subClassOf <http://www.w3.org/ns/prov#AgentInfluence> .
+
+
+###  http://www.w3.org/ns/prov#Derivation
+<http://www.w3.org/ns/prov#Derivation> rdf:type owl:Class ;
+                                       rdfs:subClassOf <http://www.w3.org/ns/prov#EntityInfluence> .
+
+
+###  http://www.w3.org/ns/prov#EntityInfluence
+<http://www.w3.org/ns/prov#EntityInfluence> rdf:type owl:Class ;
+                                            rdfs:subClassOf urw:Description .
+
+
+###  http://www.w3.org/ns/prov#Generation
+<http://www.w3.org/ns/prov#Generation> rdf:type owl:Class ;
+                                       rdfs:subClassOf <http://www.w3.org/ns/prov#ActivityInfluence> .
+
+
+###  http://www.w3.org/ns/prov#Organization
+<http://www.w3.org/ns/prov#Organization> rdf:type owl:Class ;
+                                         owl:equivalentClass urw:Organization .
+
+
+###  http://www.w3.org/ns/prov#Person
+<http://www.w3.org/ns/prov#Person> rdf:type owl:Class ;
+                                   owl:equivalentClass urw:Person .
+
+
+###  http://www.w3.org/ns/prov#SoftwareAgent
+<http://www.w3.org/ns/prov#SoftwareAgent> rdf:type owl:Class ;
+                                          owl:equivalentClass urw:SoftwareAgent .
+
+
+###  https://cidoc-crm.org/html/cidoc_crm_v7.1.1.html#E67
+<https://cidoc-crm.org/html/cidoc_crm_v7.1.1.html#E67> rdf:type owl:Class ;
+                                                       owl:equivalentClass urw:Birth .
+
+
+###  https://cidoc-crm.org/html/cidoc_crm_v7.1.1.html#E69
+<https://cidoc-crm.org/html/cidoc_crm_v7.1.1.html#E69> rdf:type owl:Class ;
+                                                       owl:equivalentClass urw:Death .
+
+
+###  https://purl.archive.org/urbooks#Edition
+urb:Edition rdf:type owl:Class .
+
+
+###  https://purl.archive.org/urbooks#Expression
+urb:Expression rdf:type owl:Class .
+
+
+###  https://purl.archive.org/urbooks#Folksonomy
+urb:Folksonomy rdf:type owl:Class .
+
+
+###  https://purl.archive.org/urbooks#Manifestation
+urb:Manifestation rdf:type owl:Class .
+
+
+###  https://purl.archive.org/urbooks#Rating
+urb:Rating rdf:type owl:Class ;
+           rdfs:label "Rating" .
+
+
+###  https://purl.archive.org/urbooks#RatingCount
+urb:RatingCount rdf:type owl:Class ;
+                rdfs:label "Rating Count" .
+
+
+###  https://purl.archive.org/urbooks#ReadersCount
+urb:ReadersCount rdf:type owl:Class ;
+                 rdfs:label "Readers Count" .
+
+
+###  https://purl.archive.org/urbooks#Reception
+urb:Reception rdfs:label "Reception" .
+
+
+###  https://purl.archive.org/urwriters#Activity
+urw:Activity rdf:type owl:Class ;
+             rdfs:subClassOf urw:Event .
+
+
+###  https://purl.archive.org/urwriters#ActivityInfluence
+urw:ActivityInfluence rdf:type owl:Class ;
+                      rdfs:subClassOf urw:Description .
+
+
+###  https://purl.archive.org/urwriters#Agent
+urw:Agent rdf:type owl:Class .
+
+
+###  https://purl.archive.org/urwriters#AgentInfluence
+urw:AgentInfluence rdf:type owl:Class ;
+                   rdfs:subClassOf urw:Description .
+
+
+###  https://purl.archive.org/urwriters#Association
+urw:Association rdf:type owl:Class ;
+                rdfs:subClassOf urw:AgentInfluence ;
+                rdfs:comment "The association of an agent to an activity (eg: writing a novel), mapped from PROV-O"@en .
+
+
+###  https://purl.archive.org/urwriters#AssociationRole
+urw:AssociationRole rdf:type owl:Class ;
+                    owl:equivalentClass [ owl:intersectionOf ( urw:Role
+                                                               [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty urw:isDefinedBy ;
+                                                                 owl:someValuesFrom urw:Association
+                                                               ]
+                                                               [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty urw:isDefinedBy ;
+                                                                 owl:allValuesFrom urw:Association
+                                                               ]
+                                                             ) ;
+                                          rdf:type owl:Class
+                                        ] ;
+                    rdfs:subClassOf urw:Role ;
+                    rdfs:comment "The role of a person related to an activity related to the pubblication of a work (eg: publisher, author, etc)"@en .
+
+
+###  https://purl.archive.org/urwriters#Attribution
+urw:Attribution rdf:type owl:Class ;
+                rdfs:subClassOf urw:AgentInfluence ;
+                rdfs:comment "The attribution of a work to a person (eg: Chinua Achebe's Things Fall Apart), derived from PROV-O"@en .
+
+
+###  https://purl.archive.org/urwriters#Birth
+urw:Birth rdf:type owl:Class ;
+          rdfs:subClassOf urw:Situation ;
+          rdfs:comment "The birth of a Person, mapped with the Birth class from CIDOC-CRM (https://cidoc-crm.org/html/cidoc_crm_v7.1.1.html#E67)"@en ;
+          rdfs:label "Birth" .
+
+
+###  https://purl.archive.org/urwriters#Classification
+urw:Classification rdf:type owl:Class ;
+                   rdfs:subClassOf urw:TimeIndexedPersonStatus .
+
+
+###  https://purl.archive.org/urwriters#Concept
+urw:Concept rdf:type owl:Class ;
+            rdfs:subClassOf [ rdf:type owl:Restriction ;
+                              owl:onProperty urw:isExpressedBy ;
+                              owl:someValuesFrom urw:Description
+                            ] ;
+            rdfs:comment "Derived from DOLCE, within the URW-Ontology it represents all the information extracted from the automatic analysis of raw text from Wikipedia and other sources of knowledge"@en .
+
+
+###  https://purl.archive.org/urwriters#Condition
+urw:Condition rdf:type owl:Class ;
+              owl:equivalentClass [ owl:intersectionOf ( urw:Description
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty urw:defines ;
+                                                           owl:someValuesFrom urw:ConditionRole
+                                                         ]
+                                                       ) ;
+                                    rdf:type owl:Class
+                                  ] ;
+              rdfs:subClassOf urw:Description ;
+              rdfs:comment "The description of a person living in a foreign country (eg: \"being a foreign student\")"@en .
+
+
+###  https://purl.archive.org/urwriters#ConditionRole
+urw:ConditionRole rdf:type owl:Class ;
+                  owl:equivalentClass [ owl:intersectionOf ( urw:Role
+                                                             [ rdf:type owl:Restriction ;
+                                                               owl:onProperty urw:isDefinedBy ;
+                                                               owl:someValuesFrom urw:Condition
+                                                             ]
+                                                             [ rdf:type owl:Restriction ;
+                                                               owl:onProperty urw:isDefinedBy ;
+                                                               owl:allValuesFrom urw:Condition
+                                                             ]
+                                                           ) ;
+                                        rdf:type owl:Class
+                                      ] ;
+                  rdfs:subClassOf urw:Role ;
+                  rdfs:comment "The role of a person who lives in a foreign country"@en .
+
+
+###  https://purl.archive.org/urwriters#Continent
+urw:Continent rdf:type owl:Class ;
+              rdfs:subClassOf urw:Place ;
+              owl:disjointWith urw:Country ;
+              rdfs:label "Continent" .
+
+
+###  https://purl.archive.org/urwriters#Country
+urw:Country rdf:type owl:Class ;
+            rdfs:subClassOf urw:Place ;
+            rdfs:label "Country" .
+
+
+###  https://purl.archive.org/urwriters#Death
+urw:Death rdf:type owl:Class ;
+          rdfs:subClassOf urw:Situation ;
+          rdfs:comment "The death of a person, mapped with the Death class from CIDOC-CRM (https://cidoc-crm.org/html/cidoc_crm_v7.1.1.html#E69)"@en ;
+          rdfs:label "Death" .
+
+
+###  https://purl.archive.org/urwriters#Delegation
+urw:Delegation rdf:type owl:Class ;
+               rdfs:subClassOf urw:AgentInfluence ;
+               rdfs:comment "the description of a relation between agents, in which one delegates an activity to another"@en .
+
+
+###  https://purl.archive.org/urwriters#Derivation
+urw:Derivation rdf:type owl:Class ;
+               rdfs:subClassOf urw:EntityInfluence ;
+               rdfs:comment "The description of a relation between two entities (eg: the work x developes the themes of the work y), derived from PROV-O"@en .
+
+
+###  https://purl.archive.org/urwriters#Description
+urw:Description rdf:type owl:Class ;
+                rdfs:comment "This class is mapped from DOLCE and in the context of the URW Ontology it is used to: (i) define the roles of a person within a situation (eg: the Description \"Migrating for economic reasons\" results in the role \"Economic migrant\"; (ii) it was mapped as a super-class for all the PROV-O classes that are used in the expression of qualified influences."@en .
+
+
+###  https://purl.archive.org/urwriters#Emotion
+urw:Emotion rdf:type owl:Class ;
+            rdfs:subClassOf urw:Concept .
+
+
+###  https://purl.archive.org/urwriters#EntityInfluence
+urw:EntityInfluence rdf:type owl:Class ;
+                    rdfs:subClassOf urw:Description .
+
+
+###  https://purl.archive.org/urwriters#Event
+urw:Event rdf:type owl:Class ;
+          rdfs:comment "this class is equivalent to the one asserted in DOLCE, according to which it is \"any physical, social, or mental process, event, or state.\""@en .
+
+
+###  https://purl.archive.org/urwriters#Gender
+urw:Gender rdf:type owl:Class ;
+           rdfs:subClassOf urw:PersonalAttribute ;
+           rdfs:label "Gender" .
+
+
+###  https://purl.archive.org/urwriters#Generation
+urw:Generation rdf:type owl:Class ;
+               rdfs:subClassOf urw:ActivityInfluence ;
+               rdfs:comment "The creation of an entity by an activity (mapped with PROV-O)"@en .
+
+
+###  https://purl.archive.org/urwriters#Group
+urw:Group rdf:type owl:Class ;
+          rdfs:subClassOf urw:Agent .
+
+
+###  https://purl.archive.org/urwriters#InformationObject
+urw:InformationObject rdf:type owl:Class .
+
+
+###  https://purl.archive.org/urwriters#Language
+urw:Language rdf:type owl:Class ;
+             rdfs:comment "This class is derived from the lexvo.org ontology (https://lexvo.org/ontology#Language), and includes all the entity of the type Language represented with the two-digit ISO language code (eg: en)"@en ;
+             rdfs:label "Language" .
+
+
+###  https://purl.archive.org/urwriters#Migrating
+urw:Migrating rdf:type owl:Class ;
+              rdfs:subClassOf [ owl:intersectionOf ( urw:Activity
+                                                     [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                                              owl:onProperty <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasParticipant> ;
+                                                                              owl:someValuesFrom urw:Agent
+                                                                            ]
+                                                                            [ rdf:type owl:Restriction ;
+                                                                              owl:onProperty <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasParticipant> ;
+                                                                              owl:allValuesFrom urw:Agent
+                                                                            ]
+                                                                          ) ;
+                                                       rdf:type owl:Class
+                                                     ]
+                                                   ) ;
+                                rdf:type owl:Class
+                              ] ;
+              rdfs:comment "Migrating is a sub-class of an Event, which is used within the modeling of the Migration biographical pattern. It is in the setting of a Migration (urw:hasSetting) and it has an Agent as participant (urw:hasParticipant)"@en .
+
+
+###  https://purl.archive.org/urwriters#Migration
+urw:Migration rdf:type owl:Class ;
+              owl:equivalentClass [ owl:intersectionOf ( urw:Situation
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty urw:isSettingFor ;
+                                                           owl:someValuesFrom urw:Migrating
+                                                         ]
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty urw:isSettingFor ;
+                                                           owl:someValuesFrom urw:MigrationReason
+                                                         ]
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty urw:isSettingFor ;
+                                                           owl:someValuesFrom urw:Place
+                                                         ]
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty urw:satisfies ;
+                                                           owl:someValuesFrom urw:MigrationPlan
+                                                         ]
+                                                       ) ;
+                                    rdf:type owl:Class
+                                  ] ;
+              rdfs:subClassOf urw:Situation ;
+              rdfs:comment "The situation in which a person migrates. Such situation is modeled from the Basic Plan Execution ODP"@en .
+
+
+###  https://purl.archive.org/urwriters#MigrationPlan
+urw:MigrationPlan rdf:type owl:Class ;
+                  owl:equivalentClass [ owl:intersectionOf ( urw:Description
+                                                             [ rdf:type owl:Restriction ;
+                                                               owl:onProperty urw:hasComponent ;
+                                                               owl:someValuesFrom urw:MigrationReason
+                                                             ]
+                                                             [ rdf:type owl:Restriction ;
+                                                               owl:onProperty urw:isSatisfiedBy ;
+                                                               owl:someValuesFrom urw:Migration
+                                                             ]
+                                                           ) ;
+                                        rdf:type owl:Class
+                                      ] ;
+                  rdfs:subClassOf urw:Description ;
+                  rdfs:comment """The plan of migrationg, satisfied by the Migration itself. 
+This class iswas derived from the BasicPlanExecution ODP."""@en .
+
+
+###  https://purl.archive.org/urwriters#MigrationReason
+urw:MigrationReason rdf:type owl:Class ;
+                    owl:equivalentClass [ owl:intersectionOf ( urw:Description
+                                                               [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty urw:defines ;
+                                                                 owl:someValuesFrom urw:MigrationRole
+                                                               ]
+                                                             ) ;
+                                          rdf:type owl:Class
+                                        ] ;
+                    rdfs:subClassOf urw:Description ;
+                    rdfs:comment """The reason of a person to migrate. It defines their role (eg: \"economic reson\" results in the role \"economic migrant\"). 
+This class iswas derived from the BasicPlanExecution ODP."""@en .
+
+
+###  https://purl.archive.org/urwriters#MigrationRole
+urw:MigrationRole rdf:type owl:Class ;
+                  owl:equivalentClass [ owl:intersectionOf ( urw:Role
+                                                             [ rdf:type owl:Restriction ;
+                                                               owl:onProperty urw:isDefinedBy ;
+                                                               owl:someValuesFrom urw:MigrationReason
+                                                             ]
+                                                             [ rdf:type owl:Restriction ;
+                                                               owl:onProperty urw:isDefinedBy ;
+                                                               owl:allValuesFrom urw:MigrationReason
+                                                             ]
+                                                           ) ;
+                                        rdf:type owl:Class
+                                      ] ;
+                  rdfs:subClassOf urw:Role ;
+                  rdfs:comment "The role of a person who is migrating"@en .
+
+
+###  https://purl.archive.org/urwriters#Minority
+urw:Minority rdf:type owl:Class ;
+             rdfs:subClassOf urw:Group ;
+             rdfs:label "Minority" .
+
+
+###  https://purl.archive.org/urwriters#MoralValue
+urw:MoralValue rdf:type owl:Class ;
+               rdfs:subClassOf urw:Concept ;
+               rdfs:comment "a moral value annotated of automatically extracted from raw text. The set of moral values relies on the Moral Foundations Theory (https://moralfoundations.org/)"@en .
+
+
+###  https://purl.archive.org/urwriters#Organization
+urw:Organization rdf:type owl:Class ;
+                 rdfs:subClassOf urw:Agent ;
+                 rdfs:comment """Derived from DOLCE: \"An internally structured, conventionally created SocialAgent, needing a specific Role and Agent that plays it, in order to act.\"
+
+In this ontology is used to represent publishers"""@en .
+
+
+###  https://purl.archive.org/urwriters#Person
+urw:Person rdf:type owl:Class ;
+           rdfs:subClassOf urw:Agent ;
+           rdfs:comment """A Person, as described in DOLCE
+
+All authors belong to this class"""@en ;
+           rdfs:label "Person" .
+
+
+###  https://purl.archive.org/urwriters#PersonalAttribute
+urw:PersonalAttribute rdf:type owl:Class ;
+                      rdfs:comment "A Class derived from the National Cancer Institute Thesaurus (http://purl.obolibrary.org/obo/NCIT_C19332)"@en .
+
+
+###  https://purl.archive.org/urwriters#Place
+urw:Place rdf:type owl:Class .
+
+
+###  https://purl.archive.org/urwriters#Prize
+urw:Prize rdf:type owl:Class ;
+          rdfs:subClassOf urw:Situation ;
+          rdfs:comment "a situation in which a person or a work is awarded or nominated to win a prize"@en ;
+          rdfs:label "Prize" .
+
+
+###  https://purl.archive.org/urwriters#Publication
+urw:Publication rdf:type owl:Class ;
+                rdfs:subClassOf urw:Activity ;
+                rdfs:comment """the Pubblication class is modeled on DOLCE and the PROV-O ontologies. 
+The class is used to represent the publication of a cultural item and may contain the following participant, related to the class with the property urw:isParticipantIn:
+- an edition (see urb:Manifestation)
+- a TimeInterval
+- a Place 
+
+Furthermore, it may also contain a publisher (urw:Organization) to whom is attributed the publication."""@en ;
+                rdfs:label "Publication" .
+
+
+###  https://purl.archive.org/urwriters#Publisher
+urw:Publisher rdf:type owl:Class ;
+              rdfs:subClassOf urw:Organization ;
+              rdfs:label "Publisher" .
+
+
+###  https://purl.archive.org/urwriters#Role
+urw:Role rdf:type owl:Class ;
+         rdfs:comment "The role of an entity within a Situation or an Event, derived from DOLCE"@en ;
+         rdfs:label "Role" .
+
+
+###  https://purl.archive.org/urwriters#Situation
+urw:Situation rdf:type owl:Class ;
+              rdfs:comment "Derived from DOLCE, in the URW Ontology this class is used to represent biographical information (eg: a Birth, a Migration, etc.) or the winning of a prize"@en ;
+              rdfs:label "Situation" .
+
+
+###  https://purl.archive.org/urwriters#SoftwareAgent
+urw:SoftwareAgent rdf:type owl:Class ;
+                  rdfs:subClassOf urw:Agent ;
+                  rdfs:comment """This class is derived from the PROV-O ontology, that defines it: \"A software agent is running software.\"
+
+In our ontology all models adopted for extracting information from raw text and for mapping different sources of knowledge are urw:SoftwareAgent to whom the resulting portion of KG is attributed (urw:wasAttributedTo)"""@en .
+
+
+###  https://purl.archive.org/urwriters#TimeIndexedPersonStatus
+urw:TimeIndexedPersonStatus rdf:type owl:Class ;
+                            owl:equivalentClass [ owl:intersectionOf ( urw:Situation
+                                                                       [ rdf:type owl:Restriction ;
+                                                                         owl:onProperty urw:hasComponent ;
+                                                                         owl:someValuesFrom urw:Classification
+                                                                       ]
+                                                                       [ rdf:type owl:Restriction ;
+                                                                         owl:onProperty urw:isSettingFor ;
+                                                                         owl:someValuesFrom urw:Condition
+                                                                       ]
+                                                                     ) ;
+                                                  rdf:type owl:Class
+                                                ] ;
+                            rdfs:subClassOf urw:Situation ;
+                            rdfs:comment "A time-bounded situation in which a person lives in a different country from their country of birth. Such situation is modeled from the Time Indexed Person Role ODP"@en .
+
+
+###  https://purl.archive.org/urwriters#TimeInterval
+urw:TimeInterval rdf:type owl:Class ;
+                 rdfs:label "Time Interval" .
+
+
+###  https://purl.archive.org/urwriters#Year
+urw:Year rdf:type owl:Class ;
+         rdfs:subClassOf urw:TimeInterval ;
+         rdfs:label "Year" .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  https://purl.archive.org/urbooks#Anobii
+urb:Anobii rdf:type owl:NamedIndividual .
+
+
+###  https://purl.archive.org/urwriters#Asia
+urw:Asia rdf:type owl:NamedIndividual ,
+                  urw:Continent ;
+         rdfs:label "Asia" .
+
+
+###  https://purl.archive.org/urwriters#Degari
+urw:Degari rdf:type owl:NamedIndividual ,
+                    urw:SoftwareAgent .
+
+
+###  https://purl.archive.org/urwriters#Europe
+urw:Europe rdf:type owl:NamedIndividual ,
+                    urw:Continent ;
+           rdfs:label "Europe" ;
+           geo:lat 54.5260 ;
+           geo:long 15.2551 .
+
+
+###  https://purl.archive.org/urwriters#Latin_America_and_Caribbean
+urw:Latin_America_and_Caribbean rdf:type owl:NamedIndividual ,
+                                         urw:Continent ;
+                                rdfs:label "Latin America and Caribbean" .
+
+
+###  https://purl.archive.org/urwriters#North_America
+urw:North_America rdf:type owl:NamedIndividual ,
+                           urw:Continent ;
+                  rdfs:label "North America" .
+
+
+###  https://purl.archive.org/urwriters#Oceania
+urw:Oceania rdf:type owl:NamedIndividual ,
+                     urw:Continent ;
+            rdfs:label "Oceania" .
+
+
+###  https://purl.archive.org/urwriters#SenticNet
+urw:SenticNet rdf:type owl:NamedIndividual ,
+                       urw:SoftwareAgent .
+
+
+###  https://purl.archive.org/urwriters#Text2Emotion
+urw:Text2Emotion rdf:type owl:NamedIndividual ,
+                          urw:SoftwareAgent .
+
+
+###  https://purl.archive.org/urwriters#awarded
+urw:awarded rdf:type owl:NamedIndividual ,
+                     urw:Role ;
+            rdfs:label "awarded" .
+
+
+###  https://purl.archive.org/urwriters#nominated
+urw:nominated rdf:type owl:NamedIndividual ,
+                       urw:Role .
+
+
+###  https://purl.archive.org/urwriters#transnational
+urw:transnational rdf:type owl:NamedIndividual ,
+                           urw:Role ;
+                  rdfs:label "transnational" .
+
+
+#################################################################
+#    Annotations
+#################################################################
+
+terms:creator rdfs:comment "citizenship" .
+
+
+urb:Goodreads rdfs:label "Goodreads" .
+
+
+urb:GoogleBooks rdfs:label "Google Books" .
+
+
+urb:OpenLibrary rdfs:label "Open Library" .
+
+
+urb:Wikipedia rdfs:label "Wikipedia" .
+
+
+urb:abstract rdfs:label "abstract" .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( urb:Rating
+                urb:RatingCount
+                urb:ReadersCount
+                urb:Reception
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( urw:Agent
+                urw:Description
+                urw:Event
+                urw:Role
+                urw:Situation
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( urw:AssociationRole
+                urw:ConditionRole
+                urw:MigrationRole
+              )
+] .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
